@@ -19,3 +19,8 @@ sudo cp pc /usr/share/X11/xkb/symbols/
 
 # update config
 sudo rm -rf /var/lib/xkb/*
+
+## reboot
+echo "*******************************************************"
+read -p "Your Chromebook will now reboot! Press any key to continue..."
+sudo shutdown -r now
