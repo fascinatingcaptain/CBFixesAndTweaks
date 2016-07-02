@@ -1,11 +1,14 @@
 #!/bin/bash
+#
+# Script to Fix and apply Tweaks to Chromebooks running Linux
+#
 
-## need to check if this is Baytrail TCB2
-# sudo dmidecode -s system-product-name
+# get CB model codename
+CBCODENAME=$(sudo dmidecode -s system-product-name)
 
-## will need to test when I get home
+## functions ##
 fix_sound() {
-  ## fix sound
+  ## for Baytrail TCB2
   # stop sound service
   sudo alsa force-unload
   
@@ -16,15 +19,30 @@ fix_sound() {
   sudo cp asound.state /var/lib/alsa
 }
 
-## fix keyboard
-# make backup of original pc config file
-sudo cp -n /usr/share/X11/xkb/symbols/pc /usr/share/X11/xkb/symbols/pc.bck
+fix_keyboard_keys() {
+	# make backup of original pc config file
+	sudo cp -n /usr/share/X11/xkb/symbols/pc /usr/share/X11/xkb/symbols/pc.bck
 
-# copy new pc config file
-sudo cp pc /usr/share/X11/xkb/symbols/
+	# copy new pc config file
+	sudo cp pc /usr/share/X11/xkb/symbols/
 
-# update config
-sudo rm -rf /var/lib/xkb/*
+	# update config
+	sudo rm -rf /var/lib/xkb/*
+}
+## ..functions ##
+
+# check for Baytrail CBs
+if [ "$CBCODENAME" == "Swanky" ]
+then
+	fix_sound
+fi
+echo "*******************************************************"
+echo "Fixed sound for Baytrail Chromebook"
+
+# apply keyboard remapping
+fix_keyboard_keys
+echo "*******************************************************"
+echo "Remapped top row media keys"
 
 ## reboot
 echo "*******************************************************"
