@@ -60,18 +60,7 @@ xkb_symbols "pc105" {
     key <KITG> { [ XF86KbdLightOnOff ] };
     key <KIDN> { [ XF86KbdBrightnessDown ] };
     key <KIUP> { [ XF86KbdBrightnessUp ] };
-
-    key <FK01> { [XF86Back] };
-    key <FK02> { [XF86Forward] };
-    key <FK03> { [XF86Refresh] };
-    key <FK04> { [Print] };
-    key <FK05> { [Super_L] };
-    key <FK06> { [XF86MonBrightnessDown] };
-    key <FK07> { [XF86MonBrightnessUp] };
-    key <FK08> { [XF86AudioMute] };
-    key <FK09> { [XF86AudioLowerVolume] };
-    key <FK10> { [XF86AudioRaiseVolume] };
-    key <LWIN> { [Caps_Lock] };
+	
 };
 
 hidden partial alphanumeric_keys
@@ -92,8 +81,23 @@ xkb_symbols "editing" {
     key  <END> {	[  End			]	};
     key <PGDN> {	[  Next			]	};
 
-    key   <UP> {	[  Up			]	};
-    key <LEFT> {	[  Left			]	};
-    key <DOWN> {	[  Down			]	};
-    key <RGHT> {	[  Right		]	};
+    // added by Captain
+    key <FK01> { 	[XF86Back, NoSymbol, NoSymbol, NoSymbol, F1] 			};
+    key <FK02> { 	[XF86Forward, NoSymbol, NoSymbol, NoSymbol, F2] 		};
+    key <FK03> { 	[XF86Refresh, NoSymbol, NoSymbol, NoSymbol, F3] 		};
+    key <FK04> { 	[Print, NoSymbol, NoSymbol, NoSymbol, F4] 			};
+    key <FK05> { 	[Super_L, NoSymbol, NoSymbol, NoSymbol, F5] 			};
+    key <FK06> { 	[XF86MonBrightnessDown, NoSymbol, NoSymbol, NoSymbol, F6] 	};
+    key <FK07> { 	[XF86MonBrightnessUp, NoSymbol, NoSymbol, NoSymbol, F7] 	};
+    key <FK08> { 	[XF86AudioMute, NoSymbol, NoSymbol, NoSymbol, F8] 		};
+    key <FK09> { 	[XF86AudioLowerVolume, NoSymbol, NoSymbol, NoSymbol, F9] 	};
+    key <FK10> { 	[XF86AudioRaiseVolume, NoSymbol, NoSymbol, NoSymbol, F10] 	};
+    key <LWIN> { 	[Caps_Lock] };
+		
+    // added by Captain
+    key <UP>   {	[  Up, Page_Up			]	};
+    key <LEFT> {	[  Left, Home			]	};
+    key <DOWN> {	[  Down, Page_Down		]	};
+    key <RGHT> {	[  Right, End		        ]	};
+
 };
