@@ -8,7 +8,7 @@ CBCODENAME=$(sudo dmidecode -s system-product-name)
 
 ## functions ##
 fix_sound() {
-  ## for Baytrail TCB2
+  ## for Baytrail TCB2 and Acer CB3-531??
   # stop sound service
   sudo alsa force-unload
   
@@ -32,7 +32,7 @@ fix_keyboard_keys() {
 ## ..functions ##
 
 # check for Baytrail CBs
-if [ "$CBCODENAME" == "Swanky" ]
+if [ "$CBCODENAME" == "Swanky" ] || [ "$CBCODENAME" == "Banjo" ]
 then
 	fix_sound
 fi
